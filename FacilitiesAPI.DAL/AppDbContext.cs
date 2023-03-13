@@ -8,6 +8,7 @@ namespace FacilitiesAPI.DAL
     {
         public DbSet<TankEntity> Tanks { get; set; } = null!;
         public DbSet<UnitEntity> Units { get; set; } = null!;
+        public DbSet<UserEntity> Users { get; set; } = null!;
 
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options) { }
 
