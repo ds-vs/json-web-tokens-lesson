@@ -1,4 +1,4 @@
-﻿using FacilitiesAPI.Models;
+﻿using FacilitiesAPI.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FacilitiesAPI.DAL.Repository

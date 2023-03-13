@@ -1,5 +1,5 @@
 using System;
-using FacilitiesAPI.Models;
+using FacilitiesAPI.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FacilitiesAPI.DAL
@@ -9,9 +9,6 @@ namespace FacilitiesAPI.DAL
         public DbSet<TankEntity> Tanks { get; set; } = null!;
         public DbSet<UnitEntity> Units { get; set; } = null!;
 
-        public AppDbContext(DbContextOptions<AppDbContext> options): base(options) 
-        {  
-            Database.EnsureCreated();
-        }
+        public AppDbContext(DbContextOptions<AppDbContext> options): base(options) { }
     }
 }

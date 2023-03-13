@@ -1,5 +1,5 @@
 ﻿using FacilitiesAPI.DAL.Repository;
-using FacilitiesAPI.Models;
+using FacilitiesAPI.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
