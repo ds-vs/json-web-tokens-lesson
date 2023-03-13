@@ -1,5 +1,6 @@
 ﻿using FacilitiesAPI.DAL.Intefaces;
 using FacilitiesAPI.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FacilitiesAPI.Controllers
@@ -16,14 +17,14 @@ namespace FacilitiesAPI.Controllers
         }
 
         // GET: api/[controller]/all
-        [HttpGet("all")]
+        [HttpGet("all"), Authorize(Roles = "admin,user")]
         public async Task<ActionResult<IEnumerable<TEntity>>> Get()
         {
             return await _repository.GetAll();
         }
 
         // GET: api/[controller]/id
-        [HttpGet("{id}")]
+        [HttpGet("{id}"), Authorize(Roles = "admin,user")]
         public async Task<ActionResult<TEntity>> Get(int id)
         {
             var model = await _repository.Get(id);
@@ -35,7 +36,7 @@ namespace FacilitiesAPI.Controllers
         }
 
         // POST: api/[controller]
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "admin")]
         public async Task<ActionResult<TEntity>> Create(TEntity model)
         {
             await _repository.Add(model);
@@ -44,7 +45,7 @@ namespace FacilitiesAPI.Controllers
         }
 
         // DELETE: api/[controller]/id
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "admin")]
         public async Task<ActionResult<TEntity>> Delete(int id)
         {
             var unit = await _repository.Delete(id);
@@ -56,7 +57,7 @@ namespace FacilitiesAPI.Controllers
         }
 
         // PUT: api/[controller]/id
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize(Roles = "admin")]
         public async Task<ActionResult> UpdateUnit(int id, TEntity model)
         {
             if (id != model.Id)

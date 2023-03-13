@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 
 namespace FacilitiesAPI.Controllers
 {
-    [Route("api/user/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -44,7 +44,7 @@ namespace FacilitiesAPI.Controllers
             return Ok(user);
         }
 
-        [HttpPost("auth")]
+        [HttpPost("login")]
         public async Task<ActionResult<string>> Login(UserDTO request)
         {
             var user = await _context.Users.FirstOrDefaultAsync(e => e.Username == request.Username);
@@ -65,7 +65,7 @@ namespace FacilitiesAPI.Controllers
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.Username),
-
+                new Claim(ClaimTypes.Role, user.Role!)
             };
 
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(

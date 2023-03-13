@@ -1,5 +1,6 @@
 using FacilitiesAPI.DAL.Repository;
 using FacilitiesAPI.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FacilitiesAPI.Controllers

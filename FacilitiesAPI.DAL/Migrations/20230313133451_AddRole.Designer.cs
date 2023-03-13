@@ -3,6 +3,7 @@ using System;
 using FacilitiesAPI.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FacilitiesAPI.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230313133451_AddRole")]
+    partial class AddRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,6 +125,9 @@ namespace FacilitiesAPI.DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<string>("Role")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Units");
@@ -162,9 +168,6 @@ namespace FacilitiesAPI.DAL.Migrations
                     b.Property<byte[]>("PasswordSalt")
                         .IsRequired()
                         .HasColumnType("bytea");
-
-                    b.Property<string>("Role")
-                        .HasColumnType("text");
 
                     b.Property<string>("Username")
                         .IsRequired()
