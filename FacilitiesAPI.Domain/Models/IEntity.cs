@@ -1,4 +1,4 @@
-﻿namespace FacilitiesAPI.Models
+﻿namespace FacilitiesAPI.Domain.Models
 {
     public interface IEntity
     {

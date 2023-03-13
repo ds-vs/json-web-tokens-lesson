@@ -1,7 +1,5 @@
 using FacilitiesAPI.DAL;
-using FacilitiesAPI.DAL.Intefaces;
 using FacilitiesAPI.DAL.Repository;
-using FacilitiesAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,7 +29,5 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
-
-SeedData.EnsurePopulated(app);
 
 app.Run();

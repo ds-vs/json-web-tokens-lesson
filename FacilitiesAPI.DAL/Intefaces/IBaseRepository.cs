@@ -1,4 +1,4 @@
-﻿using FacilitiesAPI.Models;
+﻿using FacilitiesAPI.Domain.Models;
 
 namespace FacilitiesAPI.DAL.Intefaces
 {

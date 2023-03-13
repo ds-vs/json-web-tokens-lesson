@@ -1,8 +1,6 @@
 ﻿using FacilitiesAPI.DAL.Intefaces;
-using FacilitiesAPI.DAL.Repository;
-using FacilitiesAPI.Models;
+using FacilitiesAPI.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace FacilitiesAPI.Controllers
 {
